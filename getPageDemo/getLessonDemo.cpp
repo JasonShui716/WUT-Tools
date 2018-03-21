@@ -26,6 +26,7 @@ int main(void)
     form = "systemId=&xmlmsg=&userName=" + username + "&password=" + password + "&type=xs";
     cout << form << endl;
     reqheader = curl_slist_append(reqheader, "User-Agent: Chrome");
+		
     reqheader = curl_slist_append(reqheader, "Content-Type: application/x-www-form-urlencoded");  
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, reqheader);
     curl_easy_setopt(curl, CURLOPT_URL, "http://sso.jwc.whut.edu.cn/Certification//login.do");
