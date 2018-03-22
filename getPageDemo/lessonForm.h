@@ -17,12 +17,14 @@ class lessonForm{
 		string password;
 		string joint(string user, string passwd);
 	public:
-		string form;
 		lessonForm();
 		void globalInit();
+		void globalDeinit();
 		void init();
+		void deinit();
 		void getInfo();
 		void appendHeader(string headLine);
+		void saveFile(FILE *fp);
 		RETcode get(string URL);		
 		RETcode post(string URL, string form);
 }
