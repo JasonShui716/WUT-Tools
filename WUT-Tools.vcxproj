@@ -110,6 +110,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="getLesson.cpp" />
+    <ClCompile Include="getLessonDemo.cpp" />
+    <ClCompile Include="lessonSheetReq.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lessonSheetReq.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
