@@ -14,7 +14,7 @@ Arrange codes and change the codes of class HttpReq and LessonSheetReq.
 
 Create README.md.
 
-The file "getLessonDemo.cpp" is a demo written in C. Input your username and password of The System, and you will get the website of your lesson sheet in the local disk.
+The file "getLessonDemo.cpp" is a demo written in C. Input your username and password of *The System*, and you will get the website of your lesson sheet in the local disk.
 
 Recent work is to rebuild it with c++. That's why those classes created.
 
