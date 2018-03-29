@@ -15,18 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="getLesson.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="getLessonDemo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lessonSheetReq.cpp">
+    <ClCompile Include="getLesson.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpReq.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LessonSheetReq.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lessonSheetReq.h">
+    <ClInclude Include="HttpReq.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LessonSheetReq.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
