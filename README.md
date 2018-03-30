@@ -8,7 +8,7 @@ These tools will include versions of CLI, GUI and even QQ(Based on the project [
 
 This is my first time to try making a *REAL* project, and I will update my progress and change logs under this line.
 ***
-2018/03/29 
+*2018/03/29* 
 
 Arrange codes and change the codes of class HttpReq and LessonSheetReq.
 
@@ -18,3 +18,6 @@ The file "getLessonDemo.cpp" is a demo written in C. Input your username and pas
 
 Recent work is to rebuild it with c++. That's why those classes created.
 
+*2018/03/30*
+
+Change *LessonSheet* to *TimeTable* for formal expression.

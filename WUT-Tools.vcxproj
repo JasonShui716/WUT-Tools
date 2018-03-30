@@ -121,11 +121,14 @@
     <ClCompile Include="getLesson.cpp" />
     <ClCompile Include="getLessonDemo.cpp" />
     <ClCompile Include="HttpReq.cpp" />
-    <ClCompile Include="LessonSheetReq.cpp" />
+    <ClCompile Include="TimeTableReq.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HttpReq.h" />
-    <ClInclude Include="LessonSheetReq.h" />
+    <ClInclude Include="TimeTableReq.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

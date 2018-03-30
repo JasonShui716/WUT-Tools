@@ -24,7 +24,7 @@
     <ClCompile Include="HttpReq.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="LessonSheetReq.cpp">
+    <ClCompile Include="TimeTableReq.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,8 +32,13 @@
     <ClInclude Include="HttpReq.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="LessonSheetReq.h">
+    <ClInclude Include="TimeTableReq.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
