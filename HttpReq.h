@@ -2,6 +2,7 @@
 #include <string>
 #include <curl/curl.h>
 typedef CURLcode RETcode;
+#define findError curl_easy_strerror
 using namespace std;
 
 class HttpReq {

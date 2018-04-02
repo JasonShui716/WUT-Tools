@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-TimeTableReq::TimeTableReq(){
+TimeTableReq::TimeTableReq() : HttpReq(){
 
 }
 

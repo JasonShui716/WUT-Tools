@@ -118,9 +118,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="getLesson.cpp" />
-    <ClCompile Include="getLessonDemo.cpp" />
     <ClCompile Include="HttpReq.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="TimeTableReq.cpp" />
   </ItemGroup>
   <ItemGroup>

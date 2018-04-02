@@ -4,11 +4,9 @@
     > Mail: jiashui@hotmail.com 
     > Created Time: 2018/3/21 18:14:57
  ************************************************************************/
-#include <string>
-#include <curl/curl.h>
-typedef CURLcode RETcode;
+#include "HttpReq.h"
 using namespace std;
-class TimeTableReq{
+class TimeTableReq : public HttpReq{
 	private:
 		string username;
 		string password;
@@ -16,4 +14,4 @@ class TimeTableReq{
 		TimeTableReq();
 		void getInfo();
 		string makeForm();
-}
+};
