@@ -17,7 +17,7 @@ public:
 	void deinit();
 	void appendHeader(string headLine);
 	void setCookie(string fileName);
-	void saveFile(FILE *fp);
+	void saveFile(string fileName);
 	RETcode get(string URL);
 	RETcode post(string URL, string postField);
 };

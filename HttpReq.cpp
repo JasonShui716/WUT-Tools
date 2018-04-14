@@ -37,8 +37,10 @@ void HttpReq::setCookie(string fileName)
 	curl_easy_setopt(curl, CURLOPT_COOKIEJAR, fileName.c_str());
 }
 
-void HttpReq::saveFile(FILE * fp)
+void HttpReq::saveFile(string fileName)
 {
+	FILE *fp;
+	fp = fopen(fileName.c_str(), "w");
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 }
 

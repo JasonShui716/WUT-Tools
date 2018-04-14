@@ -1,0 +1,601 @@
+
+
+
+
+<style>
+.tablepix td {
+	white-space: normal;
+}
+
+.tablepix .xq {
+	width: 14%;
+}
+
+.tablepix tr.selected {
+	background-color: #FFF;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	
+}
+</style>
+
+
+<form method="post" action="grkbList.do"
+	onsubmit="return navTabSearch(this);">
+	<div class="pageHeader">
+		<div class="searchBar">
+			<table class="searchContent">
+				<tr>
+					<td>学年学期：</td>
+					<td><select id="xnxq" class="combox" name="xnxq" onchange="">
+							
+								
+								
+									<option value="2012-2013-1">2012-2013-1</option>
+								
+							
+								
+								
+									<option value="2012-2013-2">2012-2013-2</option>
+								
+							
+								
+								
+									<option value="2013-2014-1">2013-2014-1</option>
+								
+							
+								
+								
+									<option value="2013-2014-2">2013-2014-2</option>
+								
+							
+								
+								
+									<option value="2014-2015-1">2014-2015-1</option>
+								
+							
+								
+								
+									<option value="2014-2015-2">2014-2015-2</option>
+								
+							
+								
+								
+									<option value="2015-2016-1">2015-2016-1</option>
+								
+							
+								
+								
+									<option value="2015-2016-2">2015-2016-2</option>
+								
+							
+								
+								
+									<option value="2016-2017-1">2016-2017-1</option>
+								
+							
+								
+								
+									<option value="2016-2017-2">2016-2017-2</option>
+								
+							
+								
+								
+									<option value="2017-2018-1">2017-2018-1</option>
+								
+							
+								
+									<option value="2017-2018-2" selected="selected">
+										2017-2018-2</option>
+								
+								
+							
+								
+								
+									<option value="2018-2019-1">2018-2019-1</option>
+								
+							
+						</select>
+					</td>
+					<td>&nbsp;</td>
+					<td><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="pageContent">
+		<table id="weekTable" width="100%" border="0" cellspacing="0"
+			cellpadding="0" class="list tablepix">
+			<thead>
+				<tr>
+					<th width="5%" height="25" align="center">&nbsp;</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周一</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周二</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周三</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周四</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周五</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周六</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td height="75" align="center">第一大节</td>
+					
+						<td id="t01" height="70" align="center" class="xq">
+						
+							
+								机械设计(第01-15周,
+								李波
+								
+								老师,3-401)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t02" height="70" align="center" class="xq">
+						
+							
+						
+							
+								概率论与数理统计B(第01-16单周,
+								魏林晓
+								
+								老师,5-304)&nbsp;&nbsp;
+							
+						
+							
+								电工与电子技术基础A上(第01-16双周,
+								林榕
+								
+								老师,5-503)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t03" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t04" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+								机械设计(第01-15周,
+								李波
+								
+								老师,1-404)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t05" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								商务英语视听说(第01-16周,
+								胡冰霞
+								
+								老师,2-语音5)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t06" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t07" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第二大节</td>
+					
+						<td id="t21" height="70" align="center" class="xq">
+						
+							
+								金属工艺学A(第01-15周,
+								陈云
+								
+								老师,1-324)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t22" height="70" align="center" class="xq">
+						
+							
+						
+							
+								商务英语视听说(第1-16单周,
+								胡冰霞
+								
+								老师,2-语音2)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t23" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+								金属工艺学A(第01-15单周,
+								陈云
+								
+								老师,1-324)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t24" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+								概率论与数理统计B(第01-16周,
+								魏林晓
+								
+								老师,5-304)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t25" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								电工与电子技术基础A上(第01-16周,
+								林榕
+								
+								老师,5-101)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t26" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t27" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第三大节</td>
+					
+						<td id="t41" height="70" align="center" class="xq">
+						
+							
+								概论(第01-16周,
+								余启咏
+								
+								老师,5-313)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t42" height="70" align="center" class="xq">
+						
+							
+						
+							
+								数值计算方法(第01-16周,
+								李宇光
+								
+								老师,5-107)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t43" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+								概论(第01-16周,
+								余启咏
+								
+								老师,5-315)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t44" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t45" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t46" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t47" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第四大节</td>
+					
+						<td id="t61" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t62" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t63" height="70" align="center" class="xq">
+						
+							
+								初级健美(第1-17周,
+								张先义
+								
+								老师,体能中心健美室一)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t64" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t65" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t66" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t67" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第五大节</td>
+					
+						<td id="t81" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t82" height="70" align="center" class="xq">
+						
+							
+								三维虚拟现实技术及应用(JD)(第2-5周9-11节,
+								商蕾
+								
+								老师,5-402)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t83" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t84" height="70" align="center" class="xq">
+						
+							
+						
+							
+								中国民族器乐赏析(GX)(第1-11周9-11节,
+								何慧
+								
+								老师,5-205)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t85" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t86" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t87" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</form>
