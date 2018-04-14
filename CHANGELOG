@@ -1,0 +1,8 @@
+***
+*v0.0.1 (CLI)
+
+Enter the username and password of *the System*, and directly get the page of your timetable(Timetable.html).
+
+The bug of this version:
+Open the page with browser except Chrome will get a messy code, because the website developer didn't point out the label "meta charset".
+Later will try to add the label manually.

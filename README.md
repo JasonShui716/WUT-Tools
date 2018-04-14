@@ -6,18 +6,4 @@ This project uses a famous C network library named [libcurl](https://github.com/
 
 These tools will include versions of CLI, GUI and even QQ(Based on the project [sjdy521/Mojo-Webqq](https://github.com/sjdy521/Mojo-Webqq)).
 
-This is my first time to try making a *REAL* project, and I will update my progress and change logs under this line.
-***
-*2018/03/29* 
-
-Arrange codes and change the codes of class HttpReq and LessonSheetReq.
-
-Create README.md.
-
-The file "getLessonDemo.cpp" is a demo written in C. Input your username and password of *The System*, and you will get the website of your lesson sheet in the local disk.
-
-Recent work is to rebuild it with c++. That's why those classes created.
-
-*2018/03/30*
-
-Change *LessonSheet* to *TimeTable* for formal expression.
+This is my first time to try making a *REAL* project, and I will update my progress in DEVELOPLOG and change logs in CHANGELOG.
