@@ -52,7 +52,7 @@ RETcode HttpReq::get(string URL)
 	return curl_easy_perform(curl);
 }
 
-RETcode HttpReq::post(string URL, string postField)
+RETcode HttpReq::post(string URL)
 {
 	curl_easy_setopt(curl, CURLOPT_URL, URL.c_str());
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, req);

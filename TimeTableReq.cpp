@@ -8,17 +8,3 @@
 #include <iostream>
 using namespace std;
 
-TimeTableReq::TimeTableReq() : HttpReq(){
-
-}
-
-void TimeTableReq::getInfo(){
-	cout << "username:";
-	cin >> username;
-	cout << "password:";
-	cin >> password;
-}
-
-string TimeTableReq::makeForm(){
-	return "systemId=&xmlmsg=&userName=" + username + "&password=" + password + "&type=xs";
-}

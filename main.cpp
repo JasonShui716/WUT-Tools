@@ -17,7 +17,7 @@ int main(void) {
 	tr.setCookie("cookies.txt");
 	ret = tr.post("http://sso.jwc.whut.edu.cn/Certification//login.do", form);
 	if (ret != 0)
-		std::cerr << "error: " << findError(ret);
+		std::cerr << "error in the first step: " << findError(ret);
 	tr.deinit();
 
 	//Enter the Timetable site of the System
@@ -26,6 +26,8 @@ int main(void) {
 	tr.appendHeader("Content-Type: application/x-www-form-urlencoded");
 	tr.setCookie("cookies.txt");
 	tr.get("http://202.114.90.180/Course/");
+	if (ret != 0)
+		std::cerr << "error in the second step: " << findError(ret);
 	tr.deinit();
 
 	//Get the Timetable
@@ -35,6 +37,8 @@ int main(void) {
 	tr.setCookie("cookies.txt");
 	tr.saveFile("Timetable.html");
 	tr.get("http://202.114.90.180/Course/grkbList.do");
+	if (ret != 0)
+		std::cerr << "error in the third step: " << findError(ret);
 	tr.deinit();
 
 	tr.globalDeinit();

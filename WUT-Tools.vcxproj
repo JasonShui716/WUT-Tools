@@ -119,11 +119,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HttpReq.cpp" />
+    <ClCompile Include="LoginReq.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TimeTableReq.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HttpReq.h" />
+    <ClInclude Include="LoginReq.h" />
+    <ClInclude Include="TableReq.h" />
     <ClInclude Include="TimeTableReq.h" />
   </ItemGroup>
   <ItemGroup>

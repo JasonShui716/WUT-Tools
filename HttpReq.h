@@ -9,6 +9,8 @@ class HttpReq {
 private:
 	CURL *curl;
 	curl_slist* req;
+protected:
+	string postField;
 public:
 	HttpReq();
 	void globalInit();
@@ -19,5 +21,5 @@ public:
 	void setCookie(string fileName);
 	void saveFile(string fileName);
 	RETcode get(string URL);
-	RETcode post(string URL, string postField);
+	RETcode post(string URL);
 };

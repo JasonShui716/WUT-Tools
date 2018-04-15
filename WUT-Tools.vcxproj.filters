@@ -24,12 +24,21 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LoginReq.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HttpReq.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="TimeTableReq.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TableReq.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginReq.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
