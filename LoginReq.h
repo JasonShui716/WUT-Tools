@@ -9,6 +9,7 @@ private:
 	string password;
 public:
 	LoginReq() = default;
+	~LoginReq() = default;
 	void getInfo();
 	void makeForm();
 	RETcode login(string URL);

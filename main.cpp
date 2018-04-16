@@ -1,45 +1,29 @@
 #include <iostream>
+#include "HttpReq.h"
+#include "LoginReq.h"
 #include "TimeTableReq.h"
 using namespace std;
 
 int main(void) {
+	HttpReq hr;
+	LoginReq lr;
 	TimeTableReq tr;
-	string form;
 	RETcode ret;
-	tr.globalInit();
 
-	//Login
-	tr.init();
-	tr.getInfo();
-	form = tr.makeForm();
-	tr.appendHeader("User-Agent: Chrome");
-	tr.appendHeader("Content-Type: application/x-www-form-urlencoded");
-	tr.setCookie("cookies.txt");
-	ret = tr.post("http://sso.jwc.whut.edu.cn/Certification//login.do", form);
+	hr.globalInit();
+
+	lr.getInfo();
+	lr.makeForm();
+	ret = lr.login("http://sso.jwc.whut.edu.cn/Certification//login.do");
 	if (ret != 0)
-		std::cerr << "error in the first step: " << findError(ret);
-	tr.deinit();
-
-	//Enter the Timetable site of the System
-	tr.init();
-	tr.appendHeader("User-Agent: Chrome");
-	tr.appendHeader("Content-Type: application/x-www-form-urlencoded");
-	tr.setCookie("cookies.txt");
-	tr.get("http://202.114.90.180/Course/");
+		cerr << "Error in login(), info: " << findError(ret) << endl;
+	
+	ret = tr.enterPage("http://202.114.90.180/Course/");
 	if (ret != 0)
-		std::cerr << "error in the second step: " << findError(ret);
-	tr.deinit();
+		cerr << "Error in enterPage(), info: " << findError(ret) << endl;
 
-	//Get the Timetable
-	tr.init();
-	tr.appendHeader("User-Agent: Chrome");
-	tr.appendHeader("Content-Type: application/x-www-form-urlencoded");
-	tr.setCookie("cookies.txt");
-	tr.saveFile("Timetable.html");
-	tr.get("http://202.114.90.180/Course/grkbList.do");
+	ret = tr.getTable("http://202.114.90.180/Course/grkbList.do", "TimeTable.html");
 	if (ret != 0)
-		std::cerr << "error in the third step: " << findError(ret);
-	tr.deinit();
+		cerr << "Error in getTable(), info: " << findError(ret) << endl;
 
-	tr.globalDeinit();
 }

@@ -20,7 +20,7 @@ RETcode LoginReq::login(string URL) {
 	this->appendHeader("User-Agent: Chrome");
 	this->appendHeader("Content-Type: application/x-www-form-urlencoded");
 	this->setCookie("cookies.txt");
-	ret = this->post("http://sso.jwc.whut.edu.cn/Certification//login.do");
+	ret = this->post(URL.c_str());
 	this->deinit();
 	return ret;
 }

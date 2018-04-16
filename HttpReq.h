@@ -13,6 +13,7 @@ protected:
 	string postField;
 public:
 	HttpReq();
+	~HttpReq() = default;
 	void globalInit();
 	void globalDeinit();
 	void init();
@@ -20,6 +21,7 @@ public:
 	void appendHeader(string headLine);
 	void setCookie(string fileName);
 	void saveFile(string fileName);
+
 	RETcode get(string URL);
 	RETcode post(string URL);
 };

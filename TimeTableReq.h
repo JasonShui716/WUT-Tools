@@ -8,6 +8,12 @@
 using namespace std;
 class TimeTableReq : public TableReq{
 private:
+
 public:
 	TimeTableReq() = default;
+	~TimeTableReq() = default;
+	void getInfo();
+	void makeForm();
+	RETcode enterPage(string URL);
+	RETcode getTable(string URL, string fileName);
 };
