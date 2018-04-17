@@ -38,14 +38,12 @@ void ScoreTableReq::getSnkey(string fileName)
 	SplitString(snkey, v, "=");
 	snkey =  v[1];
 	cout << snkey << endl;
-	cin.get();
 }
 
 void ScoreTableReq::makeForm()
 {
 	postField = "pageNum=1&numPerPage=100&snkey=" + snkey;
 	cout << postField << endl;
-	cin.get();
 }
 
 RETcode ScoreTableReq::enterPage(string URL, string fileName) {
