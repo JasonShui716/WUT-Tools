@@ -7,3 +7,5 @@ This project uses a famous C network library named [libcurl](https://github.com/
 These tools will include versions of CLI, GUI and even QQ(Based on the project [sjdy521/Mojo-Webqq](https://github.com/sjdy521/Mojo-Webqq)).
 
 This is my first time to try making a *REAL* project, and I will update my progress in DEVELOPLOG and change logs in CHANGELOG.
+
+(I provide an example user in *exampleUser.txt*. If you are not a student of WUT, you can try it.)
