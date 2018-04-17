@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>武汉理工大学教务管理系统</title>
+
+<link href="themes/default/style.css" rel="stylesheet" type="text/css"
+	media="screen" />
+<link href="themes/css/core.css" rel="stylesheet" type="text/css"
+	media="screen" />
+<link href="themes/css/print.css" rel="stylesheet" type="text/css"
+	media="print" />
+<link href="uploadify/css/uploadify.css" rel="stylesheet"
+	type="text/css" media="screen" />
+<!--[if IE]>
+<link href="themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
+<![endif]-->
+
+<script src="scripts/js/speedup.js" type="text/javascript"></script>
+<script src="scripts/js/jquery-1.7.1.js" type="text/javascript"></script>
+
+<script src="scripts/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="scripts/js/jquery.validate.js" type="text/javascript"></script>
+
+<script src="scripts/js/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="scripts/xheditor/xheditor-1.1.12-zh-cn.min.js"
+	type="text/javascript"></script>
+<script src="scripts/uploadify/scripts/swfobject.js"
+	type="text/javascript"></script>
+<script src="scripts/uploadify/scripts/jquery.uploadify.v2.1.0.js"
+	type="text/javascript"></script>
+
+<script src="scripts/js/dwz.core.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.util.date.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.validate.method.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.regional.zh.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.barDrag.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.drag.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.tree.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.accordion.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.ui.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.theme.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.switchEnv.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.alertMsg.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.contextmenu.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.navTab.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.tab.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.resize.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.dialog.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.dialogDrag.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.sortDrag.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.cssTable.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.stable.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.taskBar.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.ajax.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.pagination.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.database.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.datepicker.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.effects.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.panel.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.checkbox.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.history.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.combox.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.print.js" type="text/javascript"></script>
+
+<script src="scripts/js/util.js" type="text/javascript"></script>
+<script src="scripts/js/dwz.regional.zh.js" type="text/javascript"></script>
+<!-- 打印用js -->
+<!-- <script src="scripts/js/LodopFuncs.js" type="text/javascript"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA"
+	width=0 height=0>
+	<param name="CompanyName" value="万达信息股份有限公司">
+	<param name="License" value="649717666688688748719056235623">
+	<embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0></embed>
+</object> -->
+
+<!-- 打印用js -->
+<script src="scripts/js/LodopFuncs2.js" type="text/javascript"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA"
+	width=0 height=0>
+	<param name="CompanyName" value="武汉志昆有限公司">
+	<param name="License" value="649717666688688748719056235623">
+	<embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0></embed>
+</object>
+<!--
+<script src="bin/dwz.min.js" type="text/javascript"></script>
+-->
+<script src="scripts/js/dwz.regional.zh.js" type="text/javascript"></script>
+<script type='text/javascript' src='/DailyMgt/dwr/engine.js'></script>
+
+
+<script type='text/javascript'
+	src='/DailyMgt/dwr/interface/IDictBusiness.js'></script>
+
+<script type="text/javascript">
+$(function(){
+	DWZ.init("dwz.frag.xml", {
+		loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框
+//		loginUrl:"login.html",	// 跳到登录页面
+		statusCode:{ok:200, error:300, timeout:301}, //【可选】
+		pageInfo:{pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"}, //【可选】
+		debug:false,	// 调试模式 【true|false】
+		callback:function(){
+			initEnv();
+			$("#themeList").theme({themeBase:"themes"}); // themeBase 相对于index页面的主题base路径
+		}
+	});
+});
+
+function logout(){ 
+	if(confirm('确定注销用户吗？')) {
+		window.location.href = "logout.do";
+	} 
+}
+</script>
+</head>
+
+<body scroll="no">
+	<div id="layout">
+		<div id="header">
+			<div class="headerNav">
+				<a class="logo">标志</a>
+				<ul class="nav" style="color: white;">
+					
+						<li>年级：2016级</li>
+						<li>专业：机设(余)</li>
+						<li>班级：机设1604</li>
+						<li>姓名：水贾鑫</li>
+					
+					
+					
+					<li style="margin-right: 90px;">&nbsp;</li>
+					<li><a href="http://sso.jwc.whut.edu.cn/">返回认证系统</a></li>
+					<li><a href="javascript:logout();">注销用户</a></li>
+					<li><a href="czscDown.do">操作手册</a></li>
+				</ul>
+				<ul class="themeList" id="themeList">
+					<li theme="default"><div class="selected">蓝色</div></li>
+					<li theme="green"><div>绿色</div></li>
+					<!--<li theme="red"><div>红色</div></li>-->
+					<li theme="purple"><div>紫色</div></li>
+					<li theme="silver"><div>银色</div></li>
+					<li theme="azure"><div>天蓝</div></li>
+				</ul>
+			</div>
+			<!-- navMenu -->
+
+		</div>
+
+		<div id="leftside">
+			<div id="sidebar_s">
+				<div class="collapse">
+					<div class="toggleCollapse">
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div class="toggleCollapse">
+					<h2>主菜单</h2>
+					<div>收缩</div>
+				</div>
+
+				<div class="accordion" fillSpace="sidebar">
+					<div class="accordionHeader">
+						<h2>
+							<span>Folder</span>功能模块
+						</h2>
+					</div>
+					
+						<div class="accordionContent">
+							<ul class="tree treeFolder">
+								<li><a href="#">成绩查询</a>
+									<ul>
+										<!--20170103将历史成绩和有效成绩合并到一个界面叫做成绩查询 <li><a href="yxcjList.do" target="navTab" >有效成绩查询</a></li>
+										 -->
+										<li><a href="lscjList.do?snkey=5fa12ef0-dd9c-4c6a-a4eb-5b5b635816a0" target="navTab">成绩查询</a></li>
+										<li><a href="djksList.do" target="navTab">等级考试成绩查询</a></li>
+										<li><a href="pthkscjList.do" target="navTab">普通话测试成绩查询</a></li>
+										<li><a href="xskwxfList.do" target="navTab">课外学分成绩查询</a></li>
+										<li><a href="gxkcrdList.do" target="navTab">个性课程认定</a></li>
+										<li><a href="jdpmList.do" target="navTab">绩点及排名查询</a></li>
+									</ul>
+								<li><a href="#">成绩复查</a>
+									<ul>
+										<li><a href="fccj.do" target="navTab">成绩复查申请</a></li>
+									</ul>
+							</ul>
+						</div>
+					
+					
+					
+					<div class="accordionHeader">
+						<h2>
+							<span>Folder</span>系统功能
+						</h2>
+					</div>
+					<div class="accordionContent">
+						<ul class="tree treeFolder">
+							<li><a href="http://sso.jwc.whut.edu.cn/toIndex.do" target="logout">退出系统</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="container">
+			<div id="navTab" class="tabsPage">
+				<div class="tabsPageHeader">
+					<div class="tabsPageHeaderContent">
+						<!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
+						<ul class="navTab-tab">
+							<li tabid="main" class="main"><a href="javascript:;"><span><span
+										class="home_icon">我的主页</span></span></a></li>
+						</ul>
+					</div>
+					<div class="tabsLeft">left</div>
+					<!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
+					<div class="tabsRight">right</div>
+					<!-- 禁用只需要添加一个样式 class="tabsRight tabsRightDisabled" -->
+					<div class="tabsMore">more</div>
+				</div>
+				<ul class="tabsMoreList">
+					<li><a href="javascript:;">我的主页</a></li>
+				</ul>
+				<div class="navTab-panel tabsPageContent layoutBox">
+					<div class="page unitBox"
+						style="text-align: center; margin-top: 80px;">
+						<img alt="" src="themes/images/welcome.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">版权所有：武汉理工大学教务处 Email:jiaowuch@whut.edu.cn
+		通讯地址：湖北省武汉市珞狮南路205号东院教务处 邮编：430070 电话：027-87859014</div>
+</body>
+</html>

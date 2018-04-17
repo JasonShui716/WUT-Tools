@@ -12,8 +12,7 @@ private:
 public:
 	TimeTableReq() = default;
 	~TimeTableReq() = default;
-	void getInfo();
 	void makeForm();
-	RETcode enterPage(string URL);
-	RETcode getTable(string URL, string fileName);
+	RETcode enterPage(string URL, string fileName = "");
+	RETcode getTable(string URL, string fileName = "");
 };

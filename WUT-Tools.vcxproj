@@ -99,11 +99,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);USE_OPENSSL;CURL_STATICLIB;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.\libcurl\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalOptions>/SAFESEH:NO /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>.\libcurl\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -123,11 +125,13 @@
     <ClCompile Include="HttpReq.cpp" />
     <ClCompile Include="LoginReq.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ScoreTableReq.cpp" />
     <ClCompile Include="TimeTableReq.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HttpReq.h" />
     <ClInclude Include="LoginReq.h" />
+    <ClInclude Include="ScoreTableReq.h" />
     <ClInclude Include="TableReq.h" />
     <ClInclude Include="TimeTableReq.h" />
   </ItemGroup>

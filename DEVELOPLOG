@@ -16,3 +16,7 @@ Change *LessonSheet* to *TimeTable* for formal expression.
 *2018/04/14*
 
 Finish refactor of getLessonDemo with C++.
+
+*2018/04/17*
+
+Add class *ScoreTableReq*.

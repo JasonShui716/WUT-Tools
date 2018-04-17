@@ -1,8 +1,14 @@
 ***
-*v0.0.1 (CLI)
+#v0.0.0 (CLI)
 
 Enter the username and password of *the System*, and directly get the page of your timetable(Timetable.html).
 
 The bug of this version:
 Open the page with browser except Chrome will get a messy code, because the website developer didn't point out the label "meta charset".
 Later will try to add the label manually.
+
+#0.1.0 (CLI)
+
+Now you can also get the page of your scoretable(Scoretable.html).
+
+haven't fixed the bug.

@@ -8,22 +8,19 @@
 #include <iostream>
 using namespace std;
 
-void TimeTableReq::getInfo()
-{
-	
-}
-
 void TimeTableReq::makeForm()
 {
 	
 }
 
-RETcode TimeTableReq::enterPage(string URL) {
+RETcode TimeTableReq::enterPage(string URL, string fileName) {
 	RETcode ret;
 	this->init();
 	this->appendHeader("User-Agent: Chrome");
 	this->appendHeader("Content-Type: application/x-www-form-urlencoded");
 	this->setCookie("cookies.txt");
+	if (fileName != "")
+		this->saveFile(fileName);
 	ret = this->get(URL.c_str());
 	this->deinit();
 	return ret;
@@ -36,7 +33,8 @@ RETcode TimeTableReq::getTable(string URL, string fileName)
 	this->appendHeader("User-Agent: Chrome");
 	this->appendHeader("Content-Type: application/x-www-form-urlencoded");
 	this->setCookie("cookies.txt");
-	this->saveFile(fileName);
+	if(fileName != "")
+		this->saveFile(fileName);
 	ret = this->get("http://202.114.90.180/Course/grkbList.do");
 	this->deinit();
 	return ret;

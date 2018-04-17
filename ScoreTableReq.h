@@ -8,8 +8,8 @@ private:
 public:
 	ScoreTableReq() = default;
 	~ScoreTableReq() = default;
-	void getInfo(string fileName);
+	void getSnkey(string fileName);
 	void makeForm();
-	RETcode enterPage(string URL, string fileName);
-	RETcode getTable(string URL, string fileName);
+	RETcode enterPage(string URL, string fileName = "");
+	RETcode getTable(string URL, string fileName = "");
 };

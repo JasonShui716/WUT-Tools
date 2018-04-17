@@ -1,0 +1,1033 @@
+
+
+<script type="text/javascript">
+	function changeUrl(obj) {
+		var bjmc = document.getElementById("lscj_bjmc").value;
+		var xnxq = document.getElementById("lscj_xnxq").value;
+		if (xnxq == "") {
+			alertMsg.error("请选择学年学期!", null);
+			return false;
+		} else if (bjmc == "") {
+			alertMsg.error("请选择行政班!", null);
+			return false;
+		} else {
+			obj.href = "bjcjExport.do?xnxq=" + xnxq + "&bjmc="
+					+ encodeURI(encodeURI(bjmc));
+		}
+
+	}
+ 
+	function changeUrl2(obj) {
+		var params = "";
+		var xnxq = document.getElementById("lscj_xnxq").value;
+		if (xnxq != "") {
+			params += "&xnxq=" + xnxq;
+		}
+		var xn = document.getElementById("lscj_xn").value;
+		if (xn != "") {
+			params += "&xn=" + xn;
+		}
+		var xh = document.getElementById("lscj_xh").value;
+		if (xh != "") {
+			params += "&xh=" + xh;
+		}
+		var nj = document.getElementById("lscj_nj").value;
+		if (nj != "") {
+			params += "&nj=" + nj;
+		}
+		var xydm = document.getElementById("lscj_xydm").value;
+		if (xydm != "") {
+			params += "&xydm=" + xydm;
+		}
+		var zydm = document.getElementById("lscj_zydm").value;
+		if (zydm != "") {
+			params += "&zydm=" + zydm;
+		}
+		var bjmc = document.getElementById("lscj_bjmc").value;
+		if (bjmc != "") {
+			params += "&bjmc="
+					+ encodeURI(encodeURI(encodeURI(encodeURI(bjmc))));
+		}
+		var kcmc = document.getElementById("lscj_kcmc").value;
+		if (kcmc != "") {
+			params += "&kcmc="
+					+ encodeURI(encodeURI(encodeURI(encodeURI(kcmc))));
+		}
+		var kcdm = document.getElementById("lscj_kcdm").value;
+		if (kcdm != "") {
+			params += "&kcdm=" + kcdm;
+		}
+		if (params.length < 5) {
+			alert("请选择条件！");
+		}
+		obj.href = "cjxxEdit.do?1=1" + params;
+	}
+
+	function dcxscj(obj) {
+
+		var params = "";
+		var xnxq = document.getElementById("lscj_xnxq").value;
+		if (xnxq != "") {
+			params += "&xnxq=" + xnxq;
+		}
+		var xn = document.getElementById("lscj_xn").value;
+		if (xn != "") {
+			params += "&xn=" + xn;
+		}
+		var xh = document.getElementById("lscj_xh").value;
+		if (xh != "") {
+			params += "&xh=" + xh;
+		}
+		var nj = document.getElementById("lscj_nj").value;
+		if (nj != "") {
+			params += "&nj=" + nj;
+		}
+		var xydm = document.getElementById("lscj_xydm").value;
+		if (xydm != "") {
+			params += "&xydm=" + xydm;
+		}
+		var zydm = document.getElementById("lscj_zydm").value;
+		if (zydm != "") {
+			params += "&zydm=" + zydm;
+		}
+		var bjmc = document.getElementById("lscj_bjmc").value;
+		if (bjmc != "") {
+			params += "&bjmc=" + encodeURI(encodeURI(bjmc));
+		}
+		var kcmc = document.getElementById("lscj_kcmc").value;
+		if (kcmc != "") {
+			params += "&kcmc=" + encodeURI(encodeURI(kcmc));
+		}
+		var kcxz = document.getElementById("lscj_kcxz").value;
+		if (kcxz != "") {
+			params += "&kcxz=" + encodeURI(encodeURI(kcxz));
+		}
+		var kcdm = document.getElementById("lscj_kcdm").value;
+		if (kcdm != "") {
+			params += "&kcdm=" + kcdm;
+		}
+		if (params.length < 5) {
+			alert("请选择条件！");
+		}
+
+		obj.href = "cjExportbyTj.do?1=1" + params;
+	}
+
+	function dcxscj1(obj) {
+
+		var params = "";
+		var xnxq = document.getElementById("lscj_xnxq").value;
+		if (xnxq != "") {
+			params += "&xnxq=" + xnxq;
+		}
+		var xn = document.getElementById("lscj_xn").value;
+		if (xn != "") {
+			params += "&xn=" + xn;
+		}
+		var xh = document.getElementById("lscj_xh").value;
+		if (xh != "") {
+			params += "&xh=" + xh;
+		}
+		var nj = document.getElementById("lscj_nj").value;
+		if (nj != "") {
+			params += "&nj=" + nj;
+		}
+
+		var zydm = document.getElementById("lscj_zydm").value;
+		if (zydm != "") {
+			params += "&zydm=" + zydm;
+		}
+		var bjmc = document.getElementById("lscj_bjmc").value;
+		if (bjmc != "") {
+			params += "&bjmc=" + encodeURI(encodeURI(bjmc));
+		}
+		var kcmc = document.getElementById("lscj_kcmc").value;
+		if (kcmc != "") {
+			params += "&kcmc=" + encodeURI(encodeURI(kcmc));
+		}
+		var kcxz = document.getElementById("lscj_kcxz").value;
+		if (kcxz != "") {
+			params += "&kcxz=" + encodeURI(encodeURI(kcxz));
+		}
+		var kcdm = document.getElementById("lscj_kcdm").value;
+		if (kcdm != "") {
+			params += "&kcdm=" + kcdm;
+		}
+		if (params.length < 5) {
+			alert("请选择条件！");
+		}
+		obj.href = "cjExportbyTj.do?1=1" + params;
+	}
+</script>
+<form id="pagerForm" method="post" action="lscjList.do">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="100" /> <input
+		type="hidden" name="xh" value="0121618380416"> <input type="hidden"
+		name="xn" value=""> <input type="hidden" name="xnxq"
+		value=""> <input type="hidden" name="nj" value="">
+	<input type="hidden" name="xydm" value="" /> <input
+		type="hidden" name="zydm" value=""> <input
+		type="hidden" name="bjmc" value=""> <input
+		type="hidden" name="kcmc" value=""> <input
+		type="hidden" name="kcdm" value=""> <input
+		type="hidden" name="xslb" value=""> <input
+		type="hidden" name="kcxz" value=""> <input
+		type="hidden" name="jsxm" value="" /><input
+		type="hidden" name="snkey" value="5fa12ef0-dd9c-4c6a-a4eb-5b5b635816a0" />
+	<!-- 排序
+	<input type="hidden" name="orderField" value="" />
+	 -->
+</form>
+<div class="pageHeader">
+	<form onsubmit="return navTabSearch(this);" action="lscjList.do"
+		method="post">
+		<input type="hidden" name="numPerPage" value="100" />
+		<input type="hidden" name="snkey" value="5fa12ef0-dd9c-4c6a-a4eb-5b5b635816a0" />
+		<input type="hidden" name="temp" value="true" />
+		<div class="searchBar">
+			<table class="searchContent">
+				<tr>
+					<td>学年：</td>
+					<td><select name="xn" id="lscj_xn">
+							<option value="">全部</option>
+							
+								<option 
+									value="2018-2019">2018-2019</option>
+							
+								<option 
+									value="2017-2018">2017-2018</option>
+							
+								<option 
+									value="2016-2017">2016-2017</option>
+							
+								<option 
+									value="2015-2016">2015-2016</option>
+							
+								<option 
+									value="2014-2015">2014-2015</option>
+							
+								<option 
+									value="2013-2014">2013-2014</option>
+							
+								<option 
+									value="2012-2013">2012-2013</option>
+							
+								<option 
+									value="2011-2012">2011-2012</option>
+							
+					</select></td>
+					<td>学年学期：</td>
+					<td><select id="lscj_xnxq" name="xnxq">
+							<option value="">全部</option>
+							
+								<option 
+									value="2018-2019-1">2018-2019-1</option>
+							
+								<option 
+									value="2017-2018-2">2017-2018-2</option>
+							
+								<option 
+									value="2017-2018-1">2017-2018-1</option>
+							
+								<option 
+									value="2016-2017-2">2016-2017-2</option>
+							
+								<option 
+									value="2016-2017-1">2016-2017-1</option>
+							
+								<option 
+									value="2015-2016-2">2015-2016-2</option>
+							
+								<option 
+									value="2015-2016-1">2015-2016-1</option>
+							
+								<option 
+									value="2014-2015-2">2014-2015-2</option>
+							
+								<option 
+									value="2014-2015-1">2014-2015-1</option>
+							
+								<option 
+									value="2013-2014-2">2013-2014-2</option>
+							
+								<option 
+									value="2013-2014-1">2013-2014-1</option>
+							
+								<option 
+									value="2012-2013-2">2012-2013-2</option>
+							
+								<option 
+									value="2012-2013-1">2012-2013-1</option>
+							
+								<option 
+									value="2011-2012-2">2011-2012-2</option>
+							
+								<option 
+									value="2011-2012-1">2011-2012-1</option>
+							
+					</select></td>
+					
+					<td width="40px"></td>
+					<td><input type="submit" value="查询" /></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</div>
+<div class="pageContent">
+	
+	
+	<div class="panelBar">
+		<ul class="toolBar">
+			
+	<!-- 	
+	<li><a class="edit" href="xftjList.do" target="dialog" width="700"
+		height="400"><span>绩点及排名查询</span></a></li> --> 
+		</ul>
+	</div>
+	
+	<table class="table" width="100%" layoutH="115">
+		<thead>
+			<tr>
+				<th width="4%">学年学期</th>
+				
+				<th width="4%">课程代码</th>
+				<th width="8%">课程名称</th>
+				<th width="3%">成绩课程性质</th>
+				<th width="3%">毕业课程性质</th>
+				<th width="2%">学分</th>
+				
+				<th width="3%">总评成绩</th>
+				
+				<th width="3%">成绩审核属性</th>
+				<th width="3%">最高成绩</th>
+				<th width="3%">首次成绩</th>
+				<th width="3%">考试状态</th>
+				<th width="3%">成绩类型</th>
+				<th width="3%">是否重修</th>
+				<th width="3%">学分绩点</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr target="sid_cj_id" rel="632D232596B12566E053FD02A8C0B7B9">
+					<td>2017-2018-1</td>
+					
+					<td>4140002111</td>
+					<td>材料力学A</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>5</td>
+					
+					<td>71.44</td>
+					
+					<td>培养计划课程</td>
+					<td>71.44</td>
+					<td>71.44</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.144</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="6266A4771E04631FE053FD02A8C053E4">
+					<td>2017-2018-1</td>
+					
+					<td>4210016151</td>
+					<td>初级羽毛球</td>
+					<td>体育必修</td>
+					<td>体育必修</td>
+					<td>1</td>
+					
+					<td>94.5</td>
+					
+					<td>培养计划课程</td>
+					<td>94.5</td>
+					<td>94.5</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.45</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="63465E4D1BE126E3E053FD02A8C0FE81">
+					<td>2017-2018-1</td>
+					
+					<td>4180022111</td>
+					<td>互换性与测量技术A</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>2.5</td>
+					
+					<td>68.05</td>
+					
+					<td>培养计划课程</td>
+					<td>68.05</td>
+					<td>68.05</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1.805</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="639A5ED8B52D2D4BE053FD02A8C0539E">
+					<td>2017-2018-1</td>
+					
+					<td>4180033111</td>
+					<td>机械原理</td>
+					<td>专业必修</td>
+					<td>专业必修</td>
+					<td>3.5</td>
+					
+					<td>63</td>
+					
+					<td>培养计划课程</td>
+					<td>63</td>
+					<td>63</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1.3</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="66275B00E1AD0CFFE053FD02A8C056CB">
+					<td>2017-2018-1</td>
+					
+					<td>4180111111</td>
+					<td>机械原理课程设计</td>
+					<td>实践课</td>
+					<td>实践课</td>
+					<td>1.5</td>
+					
+					<td>中等</td>
+					
+					<td>培养计划课程</td>
+					<td>75</td>
+					<td>75</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.5</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="62DAF6382EEC02AAE053FD02A8C040CD">
+					<td>2017-2018-1</td>
+					
+					<td>4180113111</td>
+					<td>机械制造工程实训B</td>
+					<td>实践课</td>
+					<td>实践课</td>
+					<td>4</td>
+					
+					<td>良好</td>
+					
+					<td>培养计划课程</td>
+					<td>85</td>
+					<td>85</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>3.5</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="62C983F7DFAB1012E053FD02A8C02876">
+					<td>2017-2018-1</td>
+					
+					<td>4030262161</td>
+					<td>跨文化口语</td>
+					<td>英语必修</td>
+					<td>英语必修</td>
+					<td>3</td>
+					
+					<td>94.9</td>
+					
+					<td>培养计划课程</td>
+					<td>94.9</td>
+					<td>94.9</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.49</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="62F12048A23B0A65E053FD02A8C0AEBE">
+					<td>2017-2018-1</td>
+					
+					<td>4200333141</td>
+					<td>普通化学A</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>3</td>
+					
+					<td>66.1</td>
+					
+					<td>培养计划课程</td>
+					<td>66.1</td>
+					<td>66.1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1.61</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="63172DB881791FCEE053FD02A8C0E97D">
+					<td>2017-2018-1</td>
+					
+					<td>4200334141</td>
+					<td>普通化学A实验</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>1</td>
+					
+					<td>92</td>
+					
+					<td>培养计划课程</td>
+					<td>92</td>
+					<td>92</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.2</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="6121999CA43467DCE053FD02A8C0EB95">
+					<td>2017-2018-1</td>
+					
+					<td>5170013991</td>
+					<td>人工智能与模式识别方法(JD)</td>
+					<td>个性课程</td>
+					<td>个性课程</td>
+					<td>1.5</td>
+					
+					<td>72</td>
+					
+					<td>个性课程</td>
+					<td>72</td>
+					<td>72</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.2</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="62F37497C5599695E053FD02A8C07F41">
+					<td>2017-2018-1</td>
+					
+					<td>4050224111</td>
+					<td>物理实验B</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>1</td>
+					
+					<td>87</td>
+					
+					<td>培养计划课程</td>
+					<td>87</td>
+					<td>87</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>3.7</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="5EE2260AB1E72515E053FD02A8C03377">
+					<td>2017-2018-1</td>
+					
+					<td>4190102001</td>
+					<td>语言与文化(GX)</td>
+					<td>通识选修</td>
+					<td>通识选修</td>
+					<td>2</td>
+					
+					<td>94.35</td>
+					
+					<td>培养计划课程</td>
+					<td>94.35</td>
+					<td>94.35</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.435</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="5277138DDC8D162CE053FD02A8C0C9FD">
+					<td>2016-2017-2</td>
+					
+					<td>4050463131</td>
+					<td>大学物理B</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>5</td>
+					
+					<td>67.1</td>
+					
+					<td>培养计划课程</td>
+					<td>67.1</td>
+					<td>67.1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1.71</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="538D62B030A14904E053FD02A8C0EE05">
+					<td>2016-2017-2</td>
+					
+					<td>4030004111</td>
+					<td>大学英语A3</td>
+					<td>英语必修</td>
+					<td>英语必修</td>
+					<td>3</td>
+					
+					<td>87.5</td>
+					
+					<td>培养计划课程</td>
+					<td>87.5</td>
+					<td>87.5</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>3.75</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="4DE4087011C81212E053FD02A8C0E9F6">
+					<td>2016-2017-2</td>
+					
+					<td>4190084001</td>
+					<td>符号逻辑(GX)</td>
+					<td>通识选修</td>
+					<td>通识选修</td>
+					<td>1.5</td>
+					
+					<td>79</td>
+					
+					<td>培养计划课程</td>
+					<td>79</td>
+					<td>79</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.9</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="53A329E72EBD9392E053FD02A8C0A4B2">
+					<td>2016-2017-2</td>
+					
+					<td>4050064111</td>
+					<td>高等数学A下</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>5</td>
+					
+					<td>71.1</td>
+					
+					<td>培养计划课程</td>
+					<td>71.1</td>
+					<td>71.1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.11</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="503C80D088608321E053FD02A8C05738">
+					<td>2016-2017-2</td>
+					
+					<td>4180016111</td>
+					<td>工程图学A下</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>2.5</td>
+					
+					<td>78</td>
+					
+					<td>培养计划课程</td>
+					<td>78</td>
+					<td>78</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.8</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="539E38D77D22251DE053FD02A8C01625">
+					<td>2016-2017-2</td>
+					
+					<td>4120023111</td>
+					<td>计算机程序设计基础(C语言)</td>
+					<td>通识必修</td>
+					<td>通识必修</td>
+					<td>3</td>
+					
+					<td>94.11</td>
+					
+					<td>培养计划课程</td>
+					<td>94.11</td>
+					<td>94.11</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.4112</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="4ED254AF075F5C63E053FD02A8C0C390">
+					<td>2016-2017-2</td>
+					
+					<td>4030058001</td>
+					<td>解读俄罗斯(GX)</td>
+					<td>通识选修</td>
+					<td>通识选修</td>
+					<td>1.5</td>
+					
+					<td>95.3</td>
+					
+					<td>培养计划课程</td>
+					<td>95.3</td>
+					<td>95.3</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.53</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="52975E68F3C01CD6E053FD02A8C08DAF">
+					<td>2016-2017-2</td>
+					
+					<td>1060003131</td>
+					<td>军事理论</td>
+					<td>通识必修</td>
+					<td>通识必修</td>
+					<td>1</td>
+					
+					<td>90.8</td>
+					
+					<td>培养计划课程</td>
+					<td>90.8</td>
+					<td>90.8</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.08</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="53ED9D1794A42AD0E053FD02A8C039F3">
+					<td>2016-2017-2</td>
+					
+					<td>4140125111</td>
+					<td>理论力学A</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>4.5</td>
+					
+					<td>63.1</td>
+					
+					<td>培养计划课程</td>
+					<td>63.1</td>
+					<td>63.1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1.31</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="50A285E2CBEA52DCE053FD02A8C092E0">
+					<td>2016-2017-2</td>
+					
+					<td>4220012991</td>
+					<td>逻辑学(RW)</td>
+					<td>个性课程</td>
+					<td>个性课程</td>
+					<td>1.5</td>
+					
+					<td>94.1</td>
+					
+					<td>个性课程</td>
+					<td>94.1</td>
+					<td>94.1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.41</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="52D27FA48FA81490E053FD02A8C02FF5">
+					<td>2016-2017-2</td>
+					
+					<td>4210002111</td>
+					<td>体育2</td>
+					<td>体育必修</td>
+					<td>体育必修</td>
+					<td>1</td>
+					
+					<td>78.9</td>
+					
+					<td>培养计划课程</td>
+					<td>78.9</td>
+					<td>78.9</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.89</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="520CDE6EB0291FF6E053FD02A8C06A5A">
+					<td>2016-2017-2</td>
+					
+					<td>4050229111</td>
+					<td>线性代数</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>2.5</td>
+					
+					<td>79.3</td>
+					
+					<td>培养计划课程</td>
+					<td>79.3</td>
+					<td>79.3</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.93</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="54088E4609846CA6E053FD02A8C0D363">
+					<td>2016-2017-2</td>
+					
+					<td>4220002111</td>
+					<td>中国近现代史纲要</td>
+					<td>通识必修</td>
+					<td>通识必修</td>
+					<td>2</td>
+					
+					<td>78.2</td>
+					
+					<td>培养计划课程</td>
+					<td>78.2</td>
+					<td>78.2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.82</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="00147D996EAF43A1A97D5DA4B1D8AC0D">
+					<td>2016-2017-1</td>
+					
+					<td>4120017111</td>
+					<td>大学计算机基础</td>
+					<td>通识必修</td>
+					<td>通识必修</td>
+					<td>2</td>
+					
+					<td>95.85</td>
+					
+					<td>培养计划课程</td>
+					<td>95.85</td>
+					<td>95.85</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.5845</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="6424B17F1D4647F2892E3D7107E7B4BD">
+					<td>2016-2017-1</td>
+					
+					<td>4030003111</td>
+					<td>大学英语A2</td>
+					<td>英语必修</td>
+					<td>英语必修</td>
+					<td>3</td>
+					
+					<td>87.2</td>
+					
+					<td>培养计划课程</td>
+					<td>87.2</td>
+					<td>87.2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>3.72</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="65CBFD366F264BF9BB40BE599FEADB27">
+					<td>2016-2017-1</td>
+					
+					<td>4050063111</td>
+					<td>高等数学A上</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>5</td>
+					
+					<td>80.1</td>
+					
+					<td>培养计划课程</td>
+					<td>80.1</td>
+					<td>80.1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>3.01</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="38D7DC9580894E49BCE21C1BB5171E03">
+					<td>2016-2017-1</td>
+					
+					<td>4180015111</td>
+					<td>工程图学A上</td>
+					<td>大类必修</td>
+					<td></td>
+					<td>3.5</td>
+					
+					<td>53.4</td>
+					
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>0</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="49E55F24C5359570E053FD02A8C08ADD">
+					<td>2016-2017-1</td>
+					
+					<td>4180015111</td>
+					<td>工程图学A上</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>3.5</td>
+					
+					<td>60</td>
+					
+					<td>培养计划课程</td>
+					<td>60</td>
+					<td>60</td>
+					<td></td>
+					<td>补考</td>
+					<td></td>
+					<td>1</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="6F5F9BA7105B4F94A5D15FA79000D415">
+					<td>2016-2017-1</td>
+					
+					<td>1060002111</td>
+					<td>军事训练</td>
+					<td>实践课</td>
+					<td>实践课</td>
+					<td>1.5</td>
+					
+					<td>优秀</td>
+					
+					<td>培养计划课程</td>
+					<td>95</td>
+					<td>95</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.5</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="0696186CB1DF42AA96D490D0DC281975">
+					<td>2016-2017-1</td>
+					
+					<td>4220001111</td>
+					<td>思想道德修养与法律基础</td>
+					<td>通识必修</td>
+					<td>通识必修</td>
+					<td>3</td>
+					
+					<td>83</td>
+					
+					<td>培养计划课程</td>
+					<td>83</td>
+					<td>83</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>3.3</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="A57058F0CF584254BD722CECF21A5D1C">
+					<td>2016-2017-1</td>
+					
+					<td>4210001111</td>
+					<td>体育1</td>
+					<td>体育必修</td>
+					<td>体育必修</td>
+					<td>1</td>
+					
+					<td>79</td>
+					
+					<td>培养计划课程</td>
+					<td>79</td>
+					<td>79</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>2.9</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="7E2E8164CA8C4D728CE294E925307CC9">
+					<td>2016-2017-1</td>
+					
+					<td>1050001131</td>
+					<td>心理健康教育</td>
+					<td>通识必修</td>
+					<td>通识必修</td>
+					<td>1</td>
+					
+					<td>91</td>
+					
+					<td>培养计划课程</td>
+					<td>91</td>
+					<td>91</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>4.1</td>
+				</tr>
+			
+				<tr target="sid_cj_id" rel="3130C9D27E3045FFAC675902FEE5A8AB">
+					<td>2016-2017-1</td>
+					
+					<td>4180090111</td>
+					<td>专业导论</td>
+					<td>大类必修</td>
+					<td>大类必修</td>
+					<td>1</td>
+					
+					<td>88</td>
+					
+					<td>培养计划课程</td>
+					<td>88</td>
+					<td>88</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>3.8</td>
+				</tr>
+			
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span> <select class="combox" name="numPerPage"
+				onchange="navTabPageBreak({numPerPage:this.value})">
+				<option value="20" >20</option>
+				<option value="50" >50</option>
+				<option value="100"
+					selected="selected">100</option>
+				<option value="200"
+					>200</option>
+			</select> <span>条，共35条</span>
+		</div>
+
+		<div class="pagination" targetType="navTab"
+			totalCount="35" numPerPage="100"
+			pageNumShown="10" currentPage="1"></div>
+
+	</div>
+</div>
