@@ -20,3 +20,7 @@ Finish refactor of getLessonDemo with C++.
 *2018/04/17*
 
 Add class *ScoreTableReq*.
+
+*2018/05/22*
+Come back after one month for a competition. Add linux-ver libcurl, usage: g++ -o test getLessonDemo.cpp  -Wl,-Bstatic -I./libcurl/linux/include -L./libcurl/linux/lib/ -lcurl -Wl,-Bdynamic -lrt -lpthread. Next I will find out how to write a makefile to build current project, and then GUI.
+
