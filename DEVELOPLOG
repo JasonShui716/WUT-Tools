@@ -26,3 +26,4 @@ Come back after one month for a competition. Add linux-ver libcurl, usage: g++ -
 
 *2018/05/23*
 Create a makefile. usage: make/ make install/ make clean.
+Create QT project, and add linux dependencies.
