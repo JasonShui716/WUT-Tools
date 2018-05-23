@@ -24,3 +24,5 @@ Add class *ScoreTableReq*.
 *2018/05/22*
 Come back after one month for a competition. Add linux-ver libcurl, usage: g++ -o test getLessonDemo.cpp  -Wl,-Bstatic -I./libcurl/linux/include -L./libcurl/linux/lib/ -lcurl -Wl,-Bdynamic -lrt -lpthread. Next I will find out how to write a makefile to build current project, and then GUI.
 
+*2018/05/23*
+Create a makefile. usage: make/ make install/ make clean.
