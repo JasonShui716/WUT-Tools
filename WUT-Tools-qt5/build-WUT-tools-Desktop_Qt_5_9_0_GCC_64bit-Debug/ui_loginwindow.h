@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'widget.ui'
+** Form generated from reading UI file 'loginwindow.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_WIDGET_H
-#define UI_WIDGET_H
+#ifndef UI_LOGINWINDOW_H
+#define UI_LOGINWINDOW_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,32 +18,32 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Widget
+class Ui_LoginWindow
 {
 public:
 
-    void setupUi(QWidget *Widget)
+    void setupUi(QWidget *LoginWindow)
     {
-        if (Widget->objectName().isEmpty())
-            Widget->setObjectName(QStringLiteral("Widget"));
-        Widget->resize(400, 300);
+        if (LoginWindow->objectName().isEmpty())
+            LoginWindow->setObjectName(QStringLiteral("LoginWindow"));
+        LoginWindow->resize(400, 300);
 
-        retranslateUi(Widget);
+        retranslateUi(LoginWindow);
 
-        QMetaObject::connectSlotsByName(Widget);
+        QMetaObject::connectSlotsByName(LoginWindow);
     } // setupUi
 
-    void retranslateUi(QWidget *Widget)
+    void retranslateUi(QWidget *LoginWindow)
     {
-        Widget->setWindowTitle(QApplication::translate("Widget", "Widget", Q_NULLPTR));
+        LoginWindow->setWindowTitle(QApplication::translate("LoginWindow", "LoginWindow", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Widget: public Ui_Widget {};
+    class LoginWindow: public Ui_LoginWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_WIDGET_H
+#endif // UI_LOGINWINDOW_H

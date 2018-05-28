@@ -1,7 +1,7 @@
 PROGRAM := wut-tools
 BIN := ./bin
 SOURCES := HttpReq.cpp LoginReq.cpp ScoreTableReq.cpp TimeTableReq.cpp main.cpp
-HTML := $(wildcard ./*.html) cookies.txt
+HTML := $(wildcard ./html/*.html) cookies.txt
 OBJS    := $(patsubst %.cpp,%.o,$(SOURCES))
 CXX      := g++
 CFLAGS  := -g -Wl,-Bstatic -Wall

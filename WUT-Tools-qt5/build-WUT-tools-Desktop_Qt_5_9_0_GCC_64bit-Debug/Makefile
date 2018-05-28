@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -D__QT_GUI__ -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WEBENGINEWIDGETS_LIB -DQT_WEBENGINECORE_LIB -DQT_QUICK_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_WEBCHANNEL_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../WUT-tools -I. -I../../libcurl/linux/include -I../../../Qt5.9.0/5.9/gcc_64/include -I../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets -I../../../Qt5.9.0/5.9/gcc_64/include/QtGui -I../../../Qt5.9.0/5.9/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../WUT-tools -I. -I../../libcurl/linux/include -I../../../Qt5.9.0/5.9/gcc_64/include -I../../../Qt5.9.0/5.9/gcc_64/include/QtWebEngineWidgets -I../../../Qt5.9.0/5.9/gcc_64/include/QtWebEngineCore -I../../../Qt5.9.0/5.9/gcc_64/include/QtQuick -I../../../Qt5.9.0/5.9/gcc_64/include/QtPrintSupport -I../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets -I../../../Qt5.9.0/5.9/gcc_64/include/QtGui -I../../../Qt5.9.0/5.9/gcc_64/include/QtWebChannel -I../../../Qt5.9.0/5.9/gcc_64/include/QtQml -I../../../Qt5.9.0/5.9/gcc_64/include/QtNetwork -I../../../Qt5.9.0/5.9/gcc_64/include/QtPositioning -I../../../Qt5.9.0/5.9/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/jason/Qt5.9.0/5.9/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,8 +38,8 @@ COMPRESS      = gzip -9f
 DISTNAME      = WUT-tools1.0.0
 DISTDIR = /home/jason/WUT-Tools/WUT-Tools-qt5/build-WUT-tools-Desktop_Qt_5_9_0_GCC_64bit-Debug/.tmp/WUT-tools1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-rpath,/home/jason/Qt5.9.0/5.9/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/ -lcurl -lrt -Wl,-Bdynamic -L/home/jason/Qt5.9.0/5.9/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LFLAGS        = -Wl,-rpath,/home/jason/Qt5.9.0/5.9/gcc_64/lib -Wl,-rpath-link,/home/jason/Qt5.9.0/5.9/gcc_64/lib
+LIBS          = $(SUBLIBS) -L/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/ -lcurl -lrt -Wl,-Bdynamic -L/home/jason/Qt5.9.0/5.9/gcc_64/lib -lQt5WebEngineWidgets -lQt5WebEngineCore -lQt5Quick -lQt5PrintSupport -lQt5Widgets -lQt5Gui -lQt5WebChannel -lQt5Qml -lQt5Network -lQt5Positioning -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,18 +52,18 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../WUT-tools/main.cpp \
-		../WUT-tools/widget.cpp \
 		../../HttpReq.cpp \
 		../../LoginReq.cpp \
 		../../ScoreTableReq.cpp \
-		../../TimeTableReq.cpp moc_widget.cpp
+		../../TimeTableReq.cpp \
+		../WUT-tools/loginwindow.cpp moc_loginwindow.cpp
 OBJECTS       = main.o \
-		widget.o \
 		HttpReq.o \
 		LoginReq.o \
 		ScoreTableReq.o \
 		TimeTableReq.o \
-		moc_widget.o
+		loginwindow.o \
+		moc_loginwindow.o
 DIST          = ../../makefile \
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/common/unix.conf \
@@ -245,17 +245,17 @@ DIST          = ../../makefile \
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/exceptions.prf \
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf \
-		../WUT-tools/WUT-tools.pro ../WUT-tools/widget.h \
-		../../HttpReq.h \
+		../WUT-tools/WUT-tools.pro ../../HttpReq.h \
 		../../LoginReq.h \
 		../../ScoreTableReq.h \
 		../../TableReq.h \
-		../../TimeTableReq.h ../WUT-tools/main.cpp \
-		../WUT-tools/widget.cpp \
+		../../TimeTableReq.h \
+		../WUT-tools/loginwindow.h ../WUT-tools/main.cpp \
 		../../HttpReq.cpp \
 		../../LoginReq.cpp \
 		../../ScoreTableReq.cpp \
-		../../TimeTableReq.cpp
+		../../TimeTableReq.cpp \
+		../WUT-tools/loginwindow.cpp
 QMAKE_TARGET  = WUT-tools
 DESTDIR       = 
 TARGET        = WUT-tools
@@ -264,7 +264,7 @@ TARGET        = WUT-tools
 first: all
 ####### Build rules
 
-$(TARGET): /home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/libcurl.a ui_widget.h $(OBJECTS)  
+$(TARGET): /home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/libcurl.a ui_loginwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../WUT-tools/WUT-tools.pro ../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
@@ -448,8 +448,16 @@ Makefile: ../WUT-tools/WUT-tools.pro ../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf \
 		../WUT-tools/WUT-tools.pro \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineWidgets.prl \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineCore.prl \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Quick.prl \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5PrintSupport.prl \
 		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl \
 		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebChannel.prl \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Qml.prl \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Network.prl \
+		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Positioning.prl \
 		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../WUT-tools/WUT-tools.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf:
@@ -633,8 +641,16 @@ Makefile: ../WUT-tools/WUT-tools.pro ../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g
 ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf:
 ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf:
 ../WUT-tools/WUT-tools.pro:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineWidgets.prl:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineCore.prl:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Quick.prl:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5PrintSupport.prl:
 ../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl:
 ../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebChannel.prl:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Qml.prl:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Network.prl:
+../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Positioning.prl:
 ../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../WUT-tools/WUT-tools.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -651,9 +667,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../WUT-tools/widget.h ../../HttpReq.h ../../LoginReq.h ../../ScoreTableReq.h ../../TableReq.h ../../TimeTableReq.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../WUT-tools/main.cpp ../WUT-tools/widget.cpp ../../HttpReq.cpp ../../LoginReq.cpp ../../ScoreTableReq.cpp ../../TimeTableReq.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../WUT-tools/widget.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../HttpReq.h ../../LoginReq.h ../../ScoreTableReq.h ../../TableReq.h ../../TimeTableReq.h ../WUT-tools/loginwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../WUT-tools/main.cpp ../../HttpReq.cpp ../../LoginReq.cpp ../../ScoreTableReq.cpp ../../TimeTableReq.cpp ../WUT-tools/loginwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../WUT-tools/loginwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -685,10 +701,10 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_widget.cpp
+compiler_moc_header_make_all: moc_loginwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_widget.cpp
-moc_widget.cpp: ../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
+	-$(DEL_FILE) moc_loginwindow.cpp
+moc_loginwindow.cpp: ../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
@@ -788,19 +804,37 @@ moc_widget.cpp: ../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
-		../WUT-tools/widget.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QFormLayout \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qformlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QLayout \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		../WUT-tools/loginwindow.h \
 		moc_predefs.h \
 		../../../Qt5.9.0/5.9/gcc_64/bin/moc
-	/home/jason/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/jason/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools -I/home/jason/WUT-Tools/libcurl/linux/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../WUT-tools/widget.h -o moc_widget.cpp
+	/home/jason/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/jason/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools -I/home/jason/WUT-Tools/libcurl/linux/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWebEngineWidgets -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWebEngineCore -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtQuick -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtPrintSupport -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWebChannel -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtQml -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtNetwork -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtPositioning -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../WUT-tools/loginwindow.h -o moc_loginwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_widget.h
+compiler_uic_make_all: ui_loginwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_widget.h
-ui_widget.h: ../WUT-tools/widget.ui \
+	-$(DEL_FILE) ui_loginwindow.h
+ui_loginwindow.h: ../WUT-tools/loginwindow.ui \
 		../../../Qt5.9.0/5.9/gcc_64/bin/uic
-	/home/jason/Qt5.9.0/5.9/gcc_64/bin/uic ../WUT-tools/widget.ui -o ui_widget.h
+	/home/jason/Qt5.9.0/5.9/gcc_64/bin/uic ../WUT-tools/loginwindow.ui -o ui_loginwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -812,7 +846,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../WUT-tools/main.cpp ../WUT-tools/widget.h \
+main.o: ../WUT-tools/main.cpp ../WUT-tools/loginwindow.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -913,6 +947,24 @@ main.o: ../WUT-tools/main.cpp ../WUT-tools/widget.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QFormLayout \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qformlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QLayout \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
@@ -921,142 +973,6 @@ main.o: ../WUT-tools/main.cpp ../WUT-tools/widget.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
 		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../WUT-tools/main.cpp
-
-widget.o: ../WUT-tools/widget.cpp ../WUT-tools/widget.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_widget.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/QVariant \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QAction \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qaction.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QHeaderView \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../WUT-tools/widget.cpp
 
 HttpReq.o: ../../HttpReq.cpp ../../HttpReq.h \
 		../../libcurl/linux/include/curl/curl.h \
@@ -1099,8 +1015,172 @@ TimeTableReq.o: ../../TimeTableReq.cpp ../../TimeTableReq.h \
 		../../libcurl/linux/include/curl/typecheck-gcc.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TimeTableReq.o ../../TimeTableReq.cpp
 
-moc_widget.o: moc_widget.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp
+loginwindow.o: ../WUT-tools/loginwindow.cpp ../WUT-tools/loginwindow.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QFormLayout \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qformlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QLayout \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		ui_loginwindow.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/QVariant \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QAction \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		../../HttpReq.h \
+		../../libcurl/linux/include/curl/curl.h \
+		../../libcurl/linux/include/curl/curlver.h \
+		../../libcurl/linux/include/curl/system.h \
+		../../libcurl/linux/include/curl/easy.h \
+		../../libcurl/linux/include/curl/multi.h \
+		../../libcurl/linux/include/curl/typecheck-gcc.h \
+		../../LoginReq.h \
+		../../TimeTableReq.h \
+		../../TableReq.h \
+		../../ScoreTableReq.h \
+		../../../Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginwindow.o ../WUT-tools/loginwindow.cpp
+
+moc_loginwindow.o: moc_loginwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginwindow.o moc_loginwindow.cpp
 
 ####### Install
 

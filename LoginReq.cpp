@@ -2,6 +2,13 @@
 #include <iostream>
 using namespace std;
 
+#ifdef __QT_GUI__
+void LoginReq::QGetInfo(string user, string pswd){
+    username = user;
+    password = pswd;
+}
+#endif
+
 void LoginReq::getInfo()
 {
 	cout << "username:";

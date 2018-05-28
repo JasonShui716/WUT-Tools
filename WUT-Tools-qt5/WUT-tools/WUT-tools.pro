@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+QT       += webenginewidgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = WUT-tools
@@ -15,6 +15,7 @@ TEMPLATE = app
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
+DEFINES += __QT_GUI__
 DEFINES += QT_DEPRECATED_WARNINGS
 
 # You can also make your code fail to compile if you use deprecated APIs.
@@ -25,22 +26,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        widget.cpp \
     ../../HttpReq.cpp \
     ../../LoginReq.cpp \
     ../../ScoreTableReq.cpp \
-    ../../TimeTableReq.cpp
+    ../../TimeTableReq.cpp \
+    loginwindow.cpp
 
 HEADERS += \
-        widget.h \
     ../../HttpReq.h \
     ../../LoginReq.h \
     ../../ScoreTableReq.h \
     ../../TableReq.h \
-    ../../TimeTableReq.h
+    ../../TimeTableReq.h \
+    loginwindow.h
 
 FORMS += \
-        widget.ui
+    loginwindow.ui
 
 DISTFILES += \
     ../../makefile
