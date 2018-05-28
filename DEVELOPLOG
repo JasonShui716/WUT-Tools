@@ -30,3 +30,4 @@ Create QT project, and add linux dependencies.
 
 *2018/05/28*
 Create a GUI version, but sheets are still saved as files.
+Add two Html parse libraries.

@@ -4,9 +4,9 @@ SOURCES := HttpReq.cpp LoginReq.cpp ScoreTableReq.cpp TimeTableReq.cpp main.cpp
 HTML := $(wildcard ./html/*.html) cookies.txt
 OBJS    := $(patsubst %.cpp,%.o,$(SOURCES))
 CXX      := g++
-CFLAGS  := -g -Wl,-Bstatic -Wall
-INCLUDE := -I ./libcurl/linux/include
-LIB     := -L./libcurl/linux/lib/ -lcurl -Wl,-Bdynamic -lrt -lpthread
+CFLAGS  := -g -Wl,-Bstatic --static -Wall
+INCLUDE := -I ./libcurl/linux/include -I ./libgumbo/linux/include -I ./libgq/linux/include
+LIB     := -L./libcurl/linux/lib/ -L./libgumbo/linux/lib -L./libgq/linux/lib -lcurl -lgumbo -lgq -Wl,-Bdynamic -lrt -lpthread
 .PHONY: clean install
 $(PROGRAM): $(OBJS)
 	$(CXX) -o $@ $^ $(LIB)
