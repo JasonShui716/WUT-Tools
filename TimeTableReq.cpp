@@ -35,7 +35,7 @@ RETcode TimeTableReq::getTable(string URL, string fileName)
 	this->setCookie("cookies.txt");
 	if(fileName != "")
 		this->saveFile(fileName);
-	ret = this->get("http://202.114.90.180/Course/grkbList.do");
+    ret = this->get(URL.c_str());
 	this->deinit();
 	return ret;
 }

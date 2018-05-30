@@ -5,7 +5,6 @@
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QWebEngineView>
 #include <string>
 
 namespace Ui{
@@ -25,7 +24,6 @@ public slots:
     void login();
 private:
     Ui::LoginWindow *ui;
-    QWebEngineView *pWebView;
     QLineEdit *pUserLineEdit;
     QLineEdit *pPasswordLineEdit;
     QPushButton *pLoginButton;

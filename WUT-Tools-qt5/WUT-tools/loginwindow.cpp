@@ -12,7 +12,6 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
-    pWebView = new QWebEngineView(this);
 //    pWebView->minimumSize(500, 500);
 
     pUserLineEdit = new QLineEdit(this);
@@ -29,7 +28,6 @@ LoginWindow::LoginWindow(QWidget *parent) :
     pLayout->addRow(QStringLiteral("学号："), pUserLineEdit);
     pLayout->addRow(QStringLiteral("教务系统密码:"), pPasswordLineEdit);
     pLayout->addRow(pLoginButton);
-    pLayout->addRow(pWebView);
     pLayout->setAlignment(pLoginButton, Qt::AlignHCenter);
     pLayout->setAlignment(Qt::AlignVCenter);
     pLayout->setSpacing(10);
@@ -71,8 +69,6 @@ void LoginWindow::login(){
     ret = sr.getTable("http://202.114.90.180/Score/lscjList.do", "ScoreTable.html");
     if (ret != 0)
         qDebug() << "Error in ScoreTableReq::getTable(), info: " << findError(ret) << endl;
-    QString url = "file:///$WUTPATH/TimeTable.html";
-    pWebView->load(url);
 }
 
 LoginWindow::~LoginWindow()
