@@ -36,3 +36,6 @@ Add two Html parse libraries.
 Change VS back to MinGW. Delete its project files.
 Finish configuring current project in Windows.
 Create makefile in windows(makefile.w32) and linux(makefile.linux).
+
+*2018/06/17*
+Create class Parser.

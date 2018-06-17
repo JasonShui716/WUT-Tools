@@ -30,7 +30,8 @@ SOURCES += \
     ../../LoginReq.cpp \
     ../../ScoreTableReq.cpp \
     ../../TimeTableReq.cpp \
-    loginwindow.cpp
+    loginwindow.cpp \
+    table.cpp
 
 HEADERS += \
     ../../HttpReq.h \
@@ -38,7 +39,8 @@ HEADERS += \
     ../../ScoreTableReq.h \
     ../../TableReq.h \
     ../../TimeTableReq.h \
-    loginwindow.h
+    loginwindow.h \
+    table.h
 
 FORMS += \
     loginwindow.ui

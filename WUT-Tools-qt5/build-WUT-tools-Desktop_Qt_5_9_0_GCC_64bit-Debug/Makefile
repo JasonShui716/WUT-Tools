@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -D__QT_GUI__ -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WEBENGINEWIDGETS_LIB -DQT_WEBENGINECORE_LIB -DQT_QUICK_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_WEBCHANNEL_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB
+DEFINES       = -D__QT_GUI__ -DQT_DEPRECATED_WARNINGS -DCURL_STATICLIB -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../WUT-tools -I. -I../../libcurl/linux/include -I../../../Qt5.9.0/5.9/gcc_64/include -I../../../Qt5.9.0/5.9/gcc_64/include/QtWebEngineWidgets -I../../../Qt5.9.0/5.9/gcc_64/include/QtWebEngineCore -I../../../Qt5.9.0/5.9/gcc_64/include/QtQuick -I../../../Qt5.9.0/5.9/gcc_64/include/QtPrintSupport -I../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets -I../../../Qt5.9.0/5.9/gcc_64/include/QtGui -I../../../Qt5.9.0/5.9/gcc_64/include/QtWebChannel -I../../../Qt5.9.0/5.9/gcc_64/include/QtQml -I../../../Qt5.9.0/5.9/gcc_64/include/QtNetwork -I../../../Qt5.9.0/5.9/gcc_64/include/QtPositioning -I../../../Qt5.9.0/5.9/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../WUT-tools -I. -I../../libcurl/linux/include -I../../libgumbo/linux/include -I../../libgq/linux/include -I../../libgq/mingw/include -I../../libgumbo/mingw/include -I../../libcurl/mingw/include -I../../../Qt5.9.0/5.9/gcc_64/include -I../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets -I../../../Qt5.9.0/5.9/gcc_64/include/QtGui -I../../../Qt5.9.0/5.9/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/jason/Qt5.9.0/5.9/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,8 +38,8 @@ COMPRESS      = gzip -9f
 DISTNAME      = WUT-tools1.0.0
 DISTDIR = /home/jason/WUT-Tools/WUT-Tools-qt5/build-WUT-tools-Desktop_Qt_5_9_0_GCC_64bit-Debug/.tmp/WUT-tools1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-rpath,/home/jason/Qt5.9.0/5.9/gcc_64/lib -Wl,-rpath-link,/home/jason/Qt5.9.0/5.9/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/ -lcurl -lrt -Wl,-Bdynamic -L/home/jason/Qt5.9.0/5.9/gcc_64/lib -lQt5WebEngineWidgets -lQt5WebEngineCore -lQt5Quick -lQt5PrintSupport -lQt5Widgets -lQt5Gui -lQt5WebChannel -lQt5Qml -lQt5Network -lQt5Positioning -lQt5Core -lGL -lpthread 
+LFLAGS        = -Wl,-rpath,/home/jason/Qt5.9.0/5.9/gcc_64/lib
+LIBS          = $(SUBLIBS) -L/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/ -lcurl -lrt -Wl,-Bdynamic -L/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libgumbo/linux/lib/ -lgumbo -L/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libgq/linux/lib/ -lgq -L/home/jason/Qt5.9.0/5.9/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -264,7 +264,7 @@ TARGET        = WUT-tools
 first: all
 ####### Build rules
 
-$(TARGET): /home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/libcurl.a ui_loginwindow.h $(OBJECTS)  
+$(TARGET): /home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libcurl/linux/lib/libcurl.a /home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libgumbo/linux/lib/libgumbo.a /home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools/../../libgq/linux/lib/libgq.a ui_loginwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../WUT-tools/WUT-tools.pro ../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
@@ -448,16 +448,8 @@ Makefile: ../WUT-tools/WUT-tools.pro ../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf \
 		../WUT-tools/WUT-tools.pro \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineWidgets.prl \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineCore.prl \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Quick.prl \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5PrintSupport.prl \
 		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl \
 		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebChannel.prl \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Qml.prl \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Network.prl \
-		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Positioning.prl \
 		../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../WUT-tools/WUT-tools.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf:
@@ -641,16 +633,8 @@ Makefile: ../WUT-tools/WUT-tools.pro ../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g
 ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf:
 ../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf:
 ../WUT-tools/WUT-tools.pro:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineWidgets.prl:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebEngineCore.prl:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Quick.prl:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5PrintSupport.prl:
 ../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl:
 ../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5WebChannel.prl:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Qml.prl:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Network.prl:
-../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Positioning.prl:
 ../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../WUT-tools/WUT-tools.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -825,7 +809,7 @@ moc_loginwindow.cpp: ../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		../WUT-tools/loginwindow.h \
 		moc_predefs.h \
 		../../../Qt5.9.0/5.9/gcc_64/bin/moc
-	/home/jason/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/jason/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools -I/home/jason/WUT-Tools/libcurl/linux/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWebEngineWidgets -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWebEngineCore -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtQuick -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtPrintSupport -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWebChannel -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtQml -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtNetwork -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtPositioning -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../WUT-tools/loginwindow.h -o moc_loginwindow.cpp
+	/home/jason/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/jason/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/jason/WUT-Tools/WUT-Tools-qt5/WUT-tools -I/home/jason/WUT-Tools/libcurl/linux/include -I/home/jason/WUT-Tools/libgumbo/linux/include -I/home/jason/WUT-Tools/libgq/linux/include -I/home/jason/WUT-Tools/libgq/mingw/include -I/home/jason/WUT-Tools/libgumbo/mingw/include -I/home/jason/WUT-Tools/libcurl/mingw/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/jason/Qt5.9.0/5.9/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../WUT-tools/loginwindow.h -o moc_loginwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:

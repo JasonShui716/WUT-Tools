@@ -5,6 +5,7 @@
 #include "../../TimeTableReq.h"
 #include "../../ScoreTableReq.h"
 #include <QDebug>
+#include <QDialog>
 
 
 LoginWindow::LoginWindow(QWidget *parent) :
@@ -69,6 +70,8 @@ void LoginWindow::login(){
     ret = sr.getTable("http://202.114.90.180/Score/lscjList.do", "ScoreTable.html");
     if (ret != 0)
         qDebug() << "Error in ScoreTableReq::getTable(), info: " << findError(ret) << endl;
+
+
 }
 
 LoginWindow::~LoginWindow()
