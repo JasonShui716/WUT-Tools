@@ -5,13 +5,13 @@
 #include "Document.h"
 #include "Node.h"
 
-class Parser{
+class HtmlParser{
     private:
         std::string content;
         std::ifstream in;
         CDocument cd;
     public:
-        Parser(std::string _fileName);
-        ~Parser();
-        string parseByRule(std::string rule);
-}
+        HtmlParser(std::string _fileName);
+        ~HtmlParser();
+        std::string parseByRule(std::string rule);
+};

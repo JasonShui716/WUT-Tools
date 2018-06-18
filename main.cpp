@@ -36,6 +36,7 @@ int main(void) {
     ret = tr.getTable("http://202.114.90.180/Course/grkbList.do", "./html/TimeTable.html");
     if (ret != 0)
         cerr << "Error in TimeTableReq::getTable(), info: " << findError(ret) << endl;
+    tr.completeHTML("./html/TimeTable.html");
 
     ret = sr.enterPage("http://202.114.90.180/Score/", "./html/mid.html");
     if (ret != 0)
@@ -47,4 +48,6 @@ int main(void) {
     ret = sr.getTable("http://202.114.90.180/Score/lscjList.do", "./html/ScoreTable.html");
     if (ret != 0)
         cerr << "Error in ScoreTableReq::getTable(), info: " << findError(ret) << endl;
+
+    hr.globalDeinit();
 }

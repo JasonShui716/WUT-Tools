@@ -6,11 +6,28 @@
  ************************************************************************/
 #include "TimeTableReq.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
 using namespace std;
 
 void TimeTableReq::makeForm()
 {
 	
+}
+
+void TimeTableReq::completeHTML(string fileName){
+	ifstream in(fileName, ios::in|ios::binary);
+	stringstream ss;
+	ss << "<html><body>";
+    ss << in.rdbuf();
+	in.close();
+	string page(ss.str());
+	cout << page;
+	ofstream out(fileName, ios::out|ios::app);
+	// out << ss.str();
+	out << "</body></html>";
+	out.close();
 }
 
 RETcode TimeTableReq::enterPage(string URL, string fileName) {
@@ -39,3 +56,5 @@ RETcode TimeTableReq::getTable(string URL, string fileName)
 	this->deinit();
 	return ret;
 }
+
+

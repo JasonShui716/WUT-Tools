@@ -1,6 +1,6 @@
 PROGRAM := wut-tools
 BIN := ./bin
-SOURCES := HttpReq.cpp LoginReq.cpp ScoreTableReq.cpp TimeTableReq.cpp main.cpp
+SOURCES := HttpReq.cpp LoginReq.cpp ScoreTableReq.cpp TimeTableReq.cpp HtmlParser.cpp main.cpp
 HTML := $(wildcard ./html/*.html) cookies.txt
 OBJS    := $(patsubst %.cpp,%.o,$(SOURCES))
 CXX      := g++

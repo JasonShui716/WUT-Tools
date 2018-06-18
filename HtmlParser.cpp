@@ -1,14 +1,14 @@
-#include "Parser.h"
+#include "HtmlParser.h"
 
-Parser::Parser(std::string fileName){
+HtmlParser::HtmlParser(std::string fileName){
     in.open(fileName, std::ios::in);
-    stringstream ss;
+    std::stringstream ss;
     ss << in.rdbuf();
     content = ss.str();
     cd.parse(content.c_str());
 }
 
-std::string Parser::parseByRule(std::string rule){
+std::string HtmlParser::parseByRule(std::string rule){
     std::string str;
     CSelection c = cd.find(rule);
     str = c.nodeAt(0).text();
@@ -17,6 +17,6 @@ std::string Parser::parseByRule(std::string rule){
 	return str;
 }
 
-Parser::~Parser(){
+HtmlParser::~HtmlParser(){
 
 }
