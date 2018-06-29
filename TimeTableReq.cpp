@@ -23,9 +23,8 @@ void TimeTableReq::completeHTML(string fileName){
     ss << in.rdbuf();
 	in.close();
 	string page(ss.str());
-	cout << page;
-	ofstream out(fileName, ios::out|ios::app);
-	// out << ss.str();
+	ofstream out(fileName, ios::out|ios::ate);
+	out << ss.str();
 	out << "</body></html>";
 	out.close();
 }

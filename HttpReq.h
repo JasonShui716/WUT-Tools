@@ -10,6 +10,7 @@ private:
 	CURL *curl;
 	curl_slist* req;
 protected:
+	FILE *fp = NULL;
 	string postField;
 public:
 	HttpReq();

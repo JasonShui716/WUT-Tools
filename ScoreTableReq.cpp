@@ -34,10 +34,27 @@ void ScoreTableReq::getSnkey(string fileName)
 			snkey = sm.str();
 		}
 	}
+	if(snkey.empty()){
+		cerr << "Error: can't get snkey." << endl;
+		exit(EXIT_FAILURE);
+	}
 	vector<string> v;
 	SplitString(snkey, v, "=");
 	snkey =  v[1];
 	cout << snkey << endl;
+}
+
+void ScoreTableReq::completeHTML(string fileName){
+	ifstream in(fileName, ios::in|ios::binary);
+	stringstream ss;
+	ss << "<html><body>";
+    ss << in.rdbuf();
+	in.close();
+	string page(ss.str());
+	ofstream out(fileName, ios::out|ios::ate);
+	out << ss.str();
+	out << "</body></html>";
+	out.close();
 }
 
 void ScoreTableReq::makeForm()

@@ -39,3 +39,6 @@ Create makefile in windows(makefile.w32) and linux(makefile.linux).
 
 *2018/06/17*
 Create class Parser.
+
+*2018/06/29*
+Fix the bug that it can't complete the HTML.

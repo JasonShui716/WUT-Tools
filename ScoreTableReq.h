@@ -10,6 +10,7 @@ public:
 	~ScoreTableReq() = default;
 	void getSnkey(string fileName);
 	void makeForm();
+	void completeHTML(string fileName);
 	RETcode enterPage(string URL, string fileName = "");
 	RETcode getTable(string URL, string fileName = "");
 };

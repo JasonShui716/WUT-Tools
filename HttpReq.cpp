@@ -24,6 +24,8 @@ void HttpReq::init()
 void HttpReq::deinit()
 {
 	curl_easy_cleanup(curl);
+	if(fp!=NULL)
+		fclose(fp);
 }
 
 void HttpReq::appendHeader(string headLine)
@@ -39,7 +41,6 @@ void HttpReq::setCookie(string fileName)
 
 void HttpReq::saveFile(string fileName)
 {
-	FILE *fp;
 	fp = fopen(fileName.c_str(), "w");
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 }
