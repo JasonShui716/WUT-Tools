@@ -14,6 +14,7 @@ int main(void) {
     RETcode ret;
 
 #ifdef _WIN32
+    system("@echo off");
     system("md html");
 #endif
 

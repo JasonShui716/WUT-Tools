@@ -1,0 +1,658 @@
+<html><body>
+
+
+
+<style>
+.tablepix td {
+	white-space: normal;
+}
+
+.tablepix .xq {
+	width: 14%;
+}
+
+.tablepix tr.selected {
+	background-color: #FFF;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	
+}
+</style>
+
+
+<form method="post" action="grkbList.do"
+	onsubmit="return navTabSearch(this);">
+	<div class="pageHeader">
+		<div class="searchBar">
+			<table class="searchContent">
+				<tr>
+					<td>学年学期：</td>
+					<td><select id="xnxq" class="combox" name="xnxq" onchange="">
+							
+								
+								
+									<option value="2012-2013-1">2012-2013-1</option>
+								
+							
+								
+								
+									<option value="2012-2013-2">2012-2013-2</option>
+								
+							
+								
+								
+									<option value="2013-2014-1">2013-2014-1</option>
+								
+							
+								
+								
+									<option value="2013-2014-2">2013-2014-2</option>
+								
+							
+								
+								
+									<option value="2014-2015-1">2014-2015-1</option>
+								
+							
+								
+								
+									<option value="2014-2015-2">2014-2015-2</option>
+								
+							
+								
+								
+									<option value="2015-2016-1">2015-2016-1</option>
+								
+							
+								
+								
+									<option value="2015-2016-2">2015-2016-2</option>
+								
+							
+								
+								
+									<option value="2016-2017-1">2016-2017-1</option>
+								
+							
+								
+								
+									<option value="2016-2017-2">2016-2017-2</option>
+								
+							
+								
+								
+									<option value="2017-2018-1">2017-2018-1</option>
+								
+							
+								
+								
+									<option value="2017-2018-2">2017-2018-2</option>
+								
+							
+								
+									<option value="2018-2019-1" selected="selected">
+										2018-2019-1</option>
+								
+								
+							
+						</select>
+					</td>
+					<td>&nbsp;</td>
+					<td><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="pageContent">
+		<table id="weekTable" width="100%" border="0" cellspacing="0"
+			cellpadding="0" class="list tablepix">
+			<thead>
+				<tr>
+					<th width="5%" height="25" align="center">&nbsp;</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周一</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周二</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周三</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周四</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周五</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周六</th>
+					<th width="149" height="25" align="center" valign="bottom"
+						class="xq">周日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td height="75" align="center">第一大节</td>
+					
+						<td id="t01" height="70" align="center" class="xq">
+						
+							
+								结构力学E(第01-14周,
+								李郁
+								
+								老师,3-101)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t02" height="70" align="center" class="xq">
+						
+							
+						
+							
+								最优化技术B(第04-15周,
+								颜彬
+								
+								老师,3-401)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t03" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+								电工电子实习B(第10-17周,
+								余区电工
+								
+								老师,东配楼)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t04" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+								结构力学E(第01-14单周,
+								李郁
+								
+								老师,3-201)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t05" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								马克思主义基本原理(第01-14周,
+								汪翠荣
+								
+								老师,3-101)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t06" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t07" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第二大节</td>
+					
+						<td id="t21" height="70" align="center" class="xq">
+						
+							
+								控制工程基础E(第01-14周,
+								
+								王国贤
+								老师,3-301)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t22" height="70" align="center" class="xq">
+						
+							
+						
+							
+								机械有限元分析(第01-14周,
+								郭建生
+								
+								老师,3-301)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t23" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+								电工电子实习B(第10-17周,
+								余区电工
+								
+								老师,东配楼)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t24" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+								控制工程基础E(第01-14单周,
+								
+								王国贤
+								老师,1-404)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t25" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								液压及气压传动A(第01-16周,
+								江丽
+								
+								老师,2-107机设)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t26" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t27" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第三大节</td>
+					
+						<td id="t41" height="70" align="center" class="xq">
+						
+							
+								单片机原理及接口技术C(第01-14周,
+								袁兵
+								
+								老师,3-401)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t42" height="70" align="center" class="xq">
+						
+							
+						
+							
+								港口内燃机A(第04-17周,
+								周勇
+								
+								老师,1-304)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t43" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+								液压及气压传动A(第01-16单周,
+								江丽
+								
+								老师,1-324)&nbsp;&nbsp;
+							
+						
+							
+								马克思主义基本原理(第01-14双周,
+								汪翠荣
+								
+								老师,5-109)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t44" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								港口内燃机A(第04-17单周,
+								周勇
+								
+								老师,3-301)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t45" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t46" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t47" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第四大节</td>
+					
+						<td id="t61" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t62" height="70" align="center" class="xq">
+						
+							
+								机械CAD(C)(第01-14周,
+								李和平
+								
+								老师,3-301)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t63" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t64" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t65" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t66" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+						<td id="t67" height="70" align="center" class="xq">
+						
+							
+						
+						</td>
+					
+				</tr>
+				<tr>
+					<td height="75" align="center">第五大节</td>
+					
+						<td id="t81" height="70" align="center" class="xq">
+						
+							
+								水上交通仿真及应用(JD)(第1-6周9-11节,
+								肖方亮
+								
+								老师,5-111)&nbsp;&nbsp;
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t82" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t83" height="70" align="center" class="xq">
+						
+							
+						
+							
+								技术经济学B(第04-17周9-11节,
+								陈昆
+								
+								老师,1-304)&nbsp;&nbsp;
+							
+						
+							
+						
+						</td>
+					
+						<td id="t84" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+								深度学习方法中的数学基础(JD)(第1-8周9-11节,
+								谢磊
+								
+								老师,1-316)&nbsp;&nbsp;
+							
+						
+						</td>
+					
+						<td id="t85" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t86" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+						<td id="t87" height="70" align="center" class="xq">
+						
+							
+						
+							
+						
+							
+						
+						</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</form></body></html>

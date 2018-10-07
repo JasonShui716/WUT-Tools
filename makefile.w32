@@ -1,5 +1,6 @@
-PROGRAM := wut-tools
-BIN := ./bin
+BIN := bin
+ENV := env
+PROGRAM := wut-tools.exe
 SOURCES := src/HttpReq.cpp \
            src/LoginReq.cpp \
 		   src/ScoreTableReq.cpp \
@@ -9,14 +10,14 @@ SOURCES := src/HttpReq.cpp \
 HTML := $(wildcard ./html/*.html) cookies.txt
 OBJS    := $(patsubst %.cpp,%.o,$(SOURCES))
 CXX      := g++
-CFLAGS  := -g -Wall -DCURL_STATICLIB
+CFLAGS  := -g -Wall
 INCLUDE := -I ./lib/libcurl/mingw/include \
            -I ./lib/libgumbo/mingw/include \
 		   -I ./lib/libgq/mingw/include
 LIB     := -L./lib/libcurl/mingw/lib \
            -L./lib/libgumbo/mingw/lib \
 		   -L./lib/libgq/mingw/lib \
-		   -lcurl -lgumbo -lgq -lwldap32 -lws2_32 -Wl,-Bstatic
+		   -lgumbo -lgq -Wl,-Bdynamic -lcurldll -lwldap32 -lws2_32 
 .PHONY: clean install
 $(PROGRAM): $(OBJS)
 	$(CXX) -o $@ $^ $(LIB)
@@ -26,6 +27,8 @@ clean:
 	rm $(OBJS) $(PROGRAM) $(HTML) -f
 	rm -rf $(BIN)
 install: $(PROGRAM)
-	cp $(PROGRAM) ./bin
-	cp $(PROGRAM) /usr/bin
+	cp $(PROGRAM) $(BIN)
+	cp -f $(ENV)/*.dll $(BIN)
+	rm $(PROGRAM)
+	# ln -s $(BIN)/$(PROGRAM) $(PROGRAM)
 
